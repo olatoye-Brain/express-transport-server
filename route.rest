@@ -1,0 +1,31 @@
+POST http://localhost:8000/admin-login
+Content-Type: application/json
+{
+    "username": "admin",
+    "password": "adminadmin",
+    "role" : "superadmin"
+}
+
+###
+
+GET http://localhost:8000/vehicles
+
+###
+
+POST http://localhost:8000/user-payment
+Content-Type: application/json
+
+{
+    "id": "62cde01e94477a252c3f9d81",
+    "amount": 4590
+}
+
+###
+
+POST http://localhost:8000/pay-with-express
+Content-Type: application/json
+
+{
+    "id": "62cde01e94477a252c3f9d81",
+    "amount": 1950
+}
