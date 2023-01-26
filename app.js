@@ -12,6 +12,7 @@ const bodyParser = require('body-parser')
 dotenv.config()
 
 const DB_CONNECT = process.env.MONGO_URI
+// const DB_CONNECT = 'mongodb://localhost/transport'
 mongoose.connect(DB_CONNECT, { useUnifiedTopology: true, useNewUrlParser: true })
 .then(()=> console.log('MongoDB Connected!'))
 .catch(err=> console.log(`Error : ${err}`))

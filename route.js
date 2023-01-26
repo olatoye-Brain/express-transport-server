@@ -37,5 +37,7 @@ router.put('/remove-booktrip/:id', accountController.removeUserBookedTrip)
 router.post('/trip-status', accountController.updateTripStatus)
 router.post('/trip-cancel', accountController.cancelListedTrip)
 router.post('/launch-trip', accountController.launchTrip)
+router.post('/change-pin', accountController.changePin)
+
 module.exports = router
 

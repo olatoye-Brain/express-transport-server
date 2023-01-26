@@ -190,7 +190,7 @@ module.exports.removeUserBookedTrip = async (req, res) => {
     const { seatNumber } = req.body
     console.log(seatNumber)
     try { 
-        const resp = await User.findById(id)
+        const resp =  User.findByawaitId(id)
         resp.bookTrips = resp.bookTrips.filter( book => book.seat !== seatNumber.seat)
         const response = await resp.save()
         res.status(201).json({ success: true, message: 'Trip removed successfully' })
@@ -250,6 +250,25 @@ module.exports.launchTrip = async (req, res) => {
         console.log(response)
         res.status(201).json({ success: true, message: 'Trip has started successfully' })
     // console.log(resp)
+    }catch(err){
+        console.log(err)        
+        res.status(500).json({ success: false })
+    }
+}
+
+//cancel trip (invalid)
+module.exports.changePin = async (req, res) => { 
+    const { newPinUpdated: {id, pin}}  = req.body
+    console.log(id)
+    console.log(pin)
+
+    try { 
+        let resp = await User.findById(id)
+        resp.expressCards.cardPin = pin;
+        const response  = await resp.save()
+        console.log(response)
+        res.status(201).json({ success: true, message: 'Pin updated successfully' })
+        console.log(resp)
     }catch(err){
         console.log(err)        
         res.status(500).json({ success: false })
